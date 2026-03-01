@@ -9,7 +9,7 @@ function escapeHtml(s) {
     .replace(/>/g, '&gt;');
 }
 
-export async function POST(request) {
+export async function POST(_request) {
   try {
     const message = [
       `🏷 Site: ${escapeHtml(getSiteName())}`,

@@ -21,7 +21,14 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+  // Server-side files (API routes, lib): Node globals (process, etc.)
+  {
+    files: ['app/api/**/*.js', 'src/lib/**/*.js'],
+    languageOptions: {
+      globals: { ...globals.node },
     },
   },
 ])
